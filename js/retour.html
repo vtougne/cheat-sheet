@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clickable diagram</title>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/viz.js@1.8.0"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+  <h1>Clickable diagram</h1>
+  <div id="graph"></div>
+
+  <script>
+    var dot = 'digraph { node [shape=square] node_A [class="node"] -> B [class="node"]; B [class="node"] -> C [class="node"]; C [class="node"] -> D [class="node"]; D [class="node"] -> A [class="node"]; }';
+    var svg = Viz(dot, { format: 'svg' });
+    
+    d3.select('#graph').html(svg);
+    
+    $(document).ready(function () {
+      $(".node").on("mouseover", function () {
+        $(this).text("JACK");
+      });
+    });
+  </script>
+
+</body>
+</html>

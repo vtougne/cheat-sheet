@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemple de diagramme Graphviz généré en JavaScript</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2"></script> Import de la bibliothèque Viz.js pour la génération du diagramme -->
+    <script src="https://unpkg.com/viz.js@1.8.0"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script> <!-- Import de la bibliothèque D3.js pour l'affichage du diagramme -->
+  </head>
+  <body>
+    <h1>Diagramme Graphviz généré en JavaScript</h1>
+    <div id="graph"></div> <!-- Div qui contiendra le diagramme SVG -->
+    <script>
+      // Code JavaScript pour la génération du diagramme
+      var dot = 'digraph { node_A -> B; B -> C; C -> D; D -> A; }'; // Définition du code DOT
+      var svg = Viz(dot, {format: 'svg'}); // Génération du diagramme au format SVG
+      d3.select('#graph').html(svg); // Affichage du diagramme dans la div 'graph'
+    </script>
+  </body>
+</html>

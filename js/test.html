@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <svg width="91pt" height="379pt" viewBox="0.00 0.00 91.22 379.22" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 375.2169)">
+      <title>%0</title>
+      <g id="node1" class="node">
+        <title>node_A</title>
+        <polygon fill="white" stroke="#000000"
+          points="60.4827,-348.4827 -.1615,-348.4827 -.1615,-287.8385 60.4827,-287.8385 60.4827,-348.4827"></polygon>
+        <text text-anchor="middle" x="30.1606" y="-313.9606" font-family="Times,serif" font-size="14.00"
+          fill="#000000">node_A</text>
+      </g>
+  </svg>
+
+  <script>
+    $(document).ready(function () {
+      // Utilisez la classe correcte "node" au lieu de "node1"
+      console.log($(".node title").text());
+      // $(".node title").text("bob")
+      $(".node text")[0].textContent = "bob";
+      console.log($(".node title").text());
+    });
+  </script>
+</body>
+
+</html>

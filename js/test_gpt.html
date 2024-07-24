@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir YAML en JSON</title>
+</head>
+<body>
+
+    <div>
+        <h2>Saisir du YAML</h2>
+        <textarea id="yamlInput" rows="10" cols="50"></textarea>
+        <br>
+        <button onclick="convertToJSON()">Convertir en JSON</button>
+    </div>
+
+    <div>
+        <h2>Résultat JSON</h2>
+        <pre id="jsonOutput"></pre>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.14.1/js-yaml.min.js"></script>
+    <script>
+        function convertToJSON() {
+            var yamlInput = document.getElementById('yamlInput').value;
+            try {
+                var jsonObject = jsyaml.load(yamlInput);
+                var jsonString = JSON.stringify(jsonObject, null, 2);
+                document.getElementById('jsonOutput').innerText = jsonString;
+            } catch (error) {
+                document.getElementById('jsonOutput').innerText = 'Erreur de conversion : ' + error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>

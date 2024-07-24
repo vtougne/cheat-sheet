@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <title>Clickable diagram</title>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/viz.js@1.8.0"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .sidepanel {
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      height: 250px;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.1s;
+      padding-top: 60px;
+    }
+
+    .sidepanel a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 3s;
+    }
+
+    .sidepanel a:hover {
+      color: #6b0e0e;
+    }
+
+    .sidepanel .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+    }
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+    <a href="#">Bob</a>
+  </div>
+  <h1>Clickable diagram</h1>
+  <div id="graph"></div> <!-- Div qui contiendra le diagramme SVG -->
+  <script>
+    function closeNav() {
+      document.getElementById("mySidepanel").style.width = "0";
+    }
+    var dot = 'digraph { bgcolor="lightblue" \
+      node [shape=square fontcolor="red"] \
+      node_A [shape=circle fontcolor=blue style=stroke] ;\
+      node_A -> B ;\
+       B -> C; C -> D; D -> A; }'; // Définition du code DOT
+    var svg = Viz(dot, { format: 'svg' });
+    d3.select('#graph').html(svg);
+
+    // console.log($("#mySidepanel")[0].innerText)
+    // console.log($("#mySidepanel a")[1])
+    $("#mySidepanel a")[1].innerText = "jack"
+    // $("#mySidepanel")[0].style.width = "250px"
+    // document.getElementById("mySidepanel").innerText = "vezvez\nceczc"
+    // console.log(document.getElementById("mySidepanel"))
+
+    $(document).ready(function () {
+      $(".node").on("mouseover", function () {
+        // $("#" + this.id + " text")[0].textContent = "bob" ;
+        // console.log($("#" + this.id + " text")[0].style.fill)
+        $("#" + this.id + " text")[0].style.fill = "blue" ;
+        $("#" + this.id + " text")[0].style.fontWeight = "bold" ;
+        console.log($("#" + this.id)[0])
+        if (document.getElementById("mySidepanel").style.width == "250px") {
+          document.getElementById("mySidepanel").style.width = "0";
+        } else {
+          document.getElementById("mySidepanel").style.width = "250px";
+        }
+      });
+      $(".node").on("mouseout", function () {
+        // console.log("mouseout")
+        $("#" + this.id + " text")[0].style.fontWeight = "normal" ;
+        $("#" + this.id + " text")[0].style.fill = "black" ;
+      });
+    });
+  </script>
+</body>
+
+</html>
