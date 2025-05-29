@@ -22,3 +22,7 @@ https://jinja.palletsprojects.com/en/3.0.x/api/#jinja2.Environment.add_extension
 
 ### compile expression
 https://jinja.palletsprojects.com/en/3.0.x/api/#jinja2.Environment.add_extension
+
+### globals
+https://jinja.palletsprojects.com/en/3.0.x/api/#jinja2.Template.globals
+
