@@ -2,22 +2,51 @@
 
 [[_TOC_]]
 
+### Use non-breaking spaces
 
-# HTML style colorizing
-<style>
-r { color: Red }
-o { color: Orange }
-g { color: Green }
-</style>
+This line uses             $`\textcolor{red}{\text{red}}`$                  spaces in many places;
+they          are              not             collapsed.  
+                           There is no need to use code blocks.
 
-# TODOs:
+
+### color using latex
+$`\textcolor{red}{\text{red}}`$  
+$`\textcolor{blue}{\text{blue}}`$  
+$`\textcolor{green}{\text{green}}`$  
+$`\textcolor{yellow}{\text{yellow}}`$  
+$`\textcolor{cyan}{\text{cyan}}`$  
+$`\textcolor{magenta}{\text{magenta}}`$  
+$`\textcolor{black}{\text{black}}`$  
+$`\textcolor{white}{\text{white}}`$  
+$`\textcolor{gray}{\text{gray}}`$  
+$`\textcolor{brown}{\text{brown}}`$  
+$`\textcolor{orange}{\text{orange}}`$  
+$`\textcolor{violet}{\text{violet}}`$
+
+### latex colorized table
+
+| First Name | Last Name | Country |
+|------------|-----------|---------|
+| John       | Do\|e       | USA     |
+| Jane       | $`\textcolor{red}{\text{Smi\|th}}`$       | Canada  |
+| David      | Lee       | UK      |
+| robert      | <del>strike</del>       | UK      |
+| Dylan      | <del>$`\textcolor{red}{\text{coucou}}`$</del>       | UK      |
+
+word one                                    word two
+
+
+
+
+
+### Todo:
 
 - <r>TODO:</r> Important thing to do
 - <o>TODO:</o> Less important thing to do
 - <g>DONE:</g> Breath deeply and improve karma
 
 
-# Paragraph
+### Paragraph
 **My Bold Text, in red color.**{: style="color: red; opacity: 0.80;" }
 
 

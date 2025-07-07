@@ -1,8 +1,6 @@
 ## json_query
 
 
-### Ansible playbook sample
-
 ```yaml
 - hosts: localhost
   gather_facts: no
@@ -29,4 +27,17 @@
 
 
 
+```
+
+
+## ad-hoc command with var
+
+```bash
+ansible -c local -m debug -e name=vince -a 'msg={{ "Hello " +  name }}' localhost
+```
+
+## ad-hoc template command with var
+
+```bash
+ansible -c local -m template -e jtable_version=0.9.12 -a 'src=./conf.template.j2 dest=conf_testing.yml' localhost
 ```
