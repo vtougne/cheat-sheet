@@ -58,7 +58,8 @@ for key_id in ${!keys[@]} ; do
       field_name=${fields[$field_id]}
       conf_file="${conf_base_name}${field_name}.cfg"
       value=$(cat "${conf_file}" | grep -m 1 "${key}" | cut -d"=" -f2 | sed "s/\"/${random_string}/g;s/[\$]/\\\\$/g")
-      record_values_length+=(${#value})
+      raw_value=$(cat "${conf_file}" | grep -m 1 "${key}" | cut -d"=" -f2 | sed "s/[\$]/\\\\$/g")
+      record_values_length+=(${#raw_value})
       record+="${separator}${value}"
     done
     records+=("${record}")
