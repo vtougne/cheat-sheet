@@ -33,11 +33,11 @@
 {
     "fields" : [
         {"key": "a", "label": "AA"},
-        {"key": "b", "label": "BB"},
+        {"key": "b", "label": "**BB**"},
         {"key": "c", "label": "CC"}
     ],
     "items" : [
-      {"a": "11", "b": "**feef**", "c": "33"},
+      {"a": "11", "b": "$`\textcolor{red}{\text{coucou}}`$", "c": "33"},
       {"a": "#1", "b": "222", "c": "233"}
     ],
     "markdown" : true,
@@ -62,3 +62,30 @@
 }
 ```
 
+## sorting elements + filter
+
+```json:table
+{
+    "fields" : [
+        {"key": "the truc", "sortable": true},
+        {"key": "b", "label": "BB", "sortable": true},
+        {"key": "c", "label": "CC", "sortable": true}
+    ],
+    "items" : [
+      {"the truc": "11", "b": "22", "c": "33"},
+      {"the truc": "211", "b": "222", "c": "233"}
+    ],
+    "filter": true
+}
+```
+
+
+
+
+
+## simple
+
+first name | last name | adress
+--- | ---- | ---- 
+john | ***doe*** | 15, truc of
+William | pi | far far

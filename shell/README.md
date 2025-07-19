@@ -1,3 +1,6 @@
+### Liens
+
+- [Les tableaux](http://www.ixany.org/fr/articles/introduction-aux-tableaux-en-bash/)
 
 
 ### Diff in memory
