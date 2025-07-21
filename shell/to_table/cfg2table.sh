@@ -31,7 +31,8 @@ done
 
 
 random_string=$(tr -dc 'A-Za-z' < /dev/urandom | head -c 20)
-separator=" ${random_string} "
+random_string='\\"'
+# separator=" ${random_string} "
 separator="\" \""
 
 declare -a records=()
@@ -54,11 +55,21 @@ for key_id in ${!keys[@]} ; do
     # declare -a record=""
     record="${key}"
     record_values_length+=(${#key})
+    blank_count_to_add=0
+    blank_to_add=''
     for field_id in ${!fields[@]} ; do
       field_name=${fields[$field_id]}
       conf_file="${conf_base_name}${field_name}.cfg"
-      value=$(cat "${conf_file}" | grep -m 1 "${key}" | cut -d"=" -f2 | sed "s/\"/${random_string}/g;s/[\$]/\\\\$/g")
-      raw_value=$(cat "${conf_file}" | grep -m 1 "${key}" | cut -d"=" -f2 | sed "s/[\$]/\\\\$/g")
+      # value=$(cat "${conf_file}" | grep -m 1 "${key}" | cut -d"=" -f2- | sed "s/\"/${random_string}/g;s/[\$]/\\\\$/g;s/\\\\\\\/\\\\\\\/g")
+      # value=$(cat "${conf_file}" | grep -m 1 "${key}" | cut -d"=" -f2-  | sed "s/[\$]/\\\\$/g")
+      raw_value="$(cat "${conf_file}" | grep -m 1 "${key}" | cut -d"=" -f2- )"
+      blank_count_to_add=$(echo "$raw_value" | tr -dc "\\\\" | wc -m)
+      blank_to_add=
+      if [[ $blank_count_to_add -eq 0 ]]; then
+        blank_count_to_add=0
+        blank_to_add="$(eval "printf '#%.0s' {1..$blank_count_to_add}")"
+      fi
+      value="$(echo "${raw_value}" | sed "s/\\\\/£/g;s/\"/${random_string}/g;s/[$]/\\\\$/g")"
       record_values_length+=(${#raw_value})
       record+="${separator}${value}"
     done
@@ -98,4 +109,5 @@ f_display_table() {
   done
 }
 
-f_display_table | sed "s/${random_string}/\"/g" 
+f_display_table | sed "s/£/\\\\/g" 
+# | sed "s/${random_string}/\"/g" 

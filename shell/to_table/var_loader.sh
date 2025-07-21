@@ -17,9 +17,11 @@ f_var_loader() {
     keys_str=$(cat "${conf_file}" | grep -v '^#' | grep -v '^$' | cut -d'=' -f1 | sort -u)
 
     var_file="${loader_app}_vars.sh"
+    set -a
     if [[ -f "${var_file}" ]]; then
 
         evalued_keys_str=$(cat "${var_file}" | grep -v '^#' | grep -v '^$' | cut -d'=' -f1 | sort -u)
+        . "${var_file}" 2>/dev/null || { echo "Error sourcing ${var_file}"; return 1; }
 
     fi
 
@@ -29,8 +31,6 @@ f_var_loader() {
     # echo -e "debug keys_str:\n${keys_str}\n"
     # echo -e "debug evaluated_keys_str:\n${evalued_keys_str}\n"
 
-    set -a
-    . "${var_file}" 2>/dev/null || { echo "Error sourcing ${var_file}"; return 1; }
 
     # echo "debug env_letter: ${env_letter}"
     export IFS="${OLD_IFS}"
