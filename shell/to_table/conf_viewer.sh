@@ -40,5 +40,7 @@ for file in ${cfg_file_list}; do
   done
 done
 
+# echo "./cfg2table.sh "${work_path}/${config_base_name}_""
+# ./cfg2table.sh "${work_path}/${config_base_name}_"
 
-./cfg2table.sh "${work_path}/${config_base_name}_"
+./cfg2table.py -i "${work_path}/${config_base_name}"
