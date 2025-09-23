@@ -1,0 +1,6 @@
+- hosts: mini-buntu
+  gather_facts: true
+  tasks:
+    - name: Display host variables
+      debug:
+        var: hostvars[inventory_hostname]

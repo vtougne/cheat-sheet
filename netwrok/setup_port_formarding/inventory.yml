@@ -1,0 +1,8 @@
+all:
+  hosts:
+    mini-buntu:
+      ansible_host: mini-buntu
+      ansible_user: vince
+      ansible_ssh_private_key_file: /home/vince/.ssh/id_rsa
+      python_version: "3.12"
+      ansible_python_interpreter: /usr/bin/python3.12
