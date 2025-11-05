@@ -34,6 +34,12 @@ bind -x '"\C-l": clear'
 
 > Quand tu appuies sur Ctrl+L, le terminal exécute la commande clear
 
+### Exécuter une fonction Bash :
+
+```bash
+my_func() { echo "Commande exécutée depuis bind !"; }
+bind -x '"\C-b": my_func'
+```
 
 
 ### Autres fonctions utiles :
