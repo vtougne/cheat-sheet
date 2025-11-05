@@ -1,0 +1,33 @@
+planning_rules:
+  patch_app1:
+    meta:
+      env: dev
+      os: Windows
+    rules:
+      - start: 3rd Tuesday December 2025
+        cycle: 2 months
+        hour: "02:00"
+      - start: 1st Wednesday January 2025
+        cycle: 12 months
+        hour: "13:00"
+
+  patch_app2:
+    meta:
+      env: production
+      os: Linux
+    rules:
+      - start: 2nd Thursday June 2025
+        cycle: 6 months
+        hour: "04:30"
+      - start: 1st Wednesday December 2025
+        cycle: 2 months
+        hour: "02:00"
+
+  patch_app3:
+    meta:
+      env: production
+      os: Linux
+    rules:
+      - start: 1st Monday September 2025
+        cycle: 12 months
+        hour: "01:15"
