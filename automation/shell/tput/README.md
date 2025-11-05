@@ -415,7 +415,13 @@ trap cleanup EXIT
 
 echo "${BOLD}${GREEN}Message important${RESET}"
 ```
+## Table des couleurs
 
+```bash
+for i in {0..255}; do echo "$(tput setaf $i)Hello ${i}${RESET}"; done
+
+for i in {0..255}; do echo "$(tput bold)$(tput setaf $i)Hello ${i}$(tput sgr0)"; done
+```
 ---
 
 ## 🔗 Ressources complémentaires
@@ -428,3 +434,30 @@ echo "${BOLD}${GREEN}Message important${RESET}"
 ---
 
 **Note** : Certaines capacités peuvent varier selon le type de terminal ($TERM). Utilisez `echo $TERM` pour connaître votre type de terminal actuel.
+
+
+
+
+## Table des couleurs
+
+```bash
+for i in {0..255}; do echo "$(tput setaf $i)Hello ${i}${RESET}"; done
+
+for i in {0..255}; do echo "$(tput bold)$(tput setaf $i)Hello ${i}$(tput sgr0)"; done
+```
+
+
+# Cas d'usage
+
+
+
+## lire et restaurer le contenu du terminal via tput smcup / tput rmcup
+
+
+
+```bash
+tput smcup   # active un écran secondaire
+echo "Interface temporaire"
+sleep 2
+tput rmcup   # restaure l’écran précédent
+```

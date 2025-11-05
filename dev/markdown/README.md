@@ -46,6 +46,24 @@ word one                                    
 - <g>DONE:</g> Breath deeply and improve karma
 
 
+### Checkbox:
+- [x] Completed task
+- [~] Inapplicable task
+- [ ] Incomplete task
+  - [x] Sub-task 1
+  - [~] Sub-task 2
+  - [ ] Sub-task 3
+
+1. [x] Completed task
+1. [~] Inapplicable task
+1. [ ] Incomplete task
+   1. [x] Sub-task 1
+   1. [~] Sub-task 2
+   1. [ ] Sub-task 3
+
+   
+
+
 ### Paragraph
 **My Bold Text, in red color.**{: style="color: red; opacity: 0.80;" }
 
