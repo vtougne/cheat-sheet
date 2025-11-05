@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # 🧠 Guide complet sur la commande `bind` en Bash
 
 ## 📖 Introduction
