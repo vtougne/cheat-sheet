@@ -1,4 +1,4 @@
-\-  [0;31mhostname[0m:  host_1  
+\-  $`\textcolor{red}{\text{hostname}}`$:  host_1  
     os:  linux  
     cost:  5000  
     state:  alive  
