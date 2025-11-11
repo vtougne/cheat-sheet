@@ -1,14 +1,1 @@
-$`\textcolor{red}{\text{- hostname: host_1
-  os: linux
-  cost: 5000
-  state: alive
-  env: qua
-- hostname: host_2
-  os: linux
-  cost: 5000
-  state: alive
-  env: qua
-- hostname: host_3
-  os: linux
-  state: unreachable
-  env: qua}}`$
+$`\textcolor{red}{\text{hello}}`$
