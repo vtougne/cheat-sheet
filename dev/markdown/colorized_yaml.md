@@ -1,5 +1,5 @@
-- $`\textcolor{red}{\text{hostname}}`$: host_1
-  os: linux
-  cost: 5000
-  state: alive
-  env: qua
+\- $`\textcolor{red}{\text{hostname}}`$: host_1  
+  os: linux  
+  cost: 5000  
+  state: alive  
+  env: qua  
