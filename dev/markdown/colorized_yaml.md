@@ -4,7 +4,7 @@
         state:  alive  
         env:  qua  
 
-
+---
 regions:  
     $`\textcolor{red}{\text{west coast}}`$:  
         dc:  
