@@ -1,5 +1,26 @@
-\- $`\textcolor{red}{\text{hostname}}`$: host_1  
-  os: linux  
-  cost: 5000  
-  state: alive  
-  env: qua  
+\-  [0;31mhostname[0m:  host_1  
+    os:  linux  
+    cost:  5000  
+    state:  alive  
+    env:  qua  
+
+
+regions:
+  west coast:
+    dc:
+      dc_a: 
+        - { hostname: host_a_1, os: linux, state: alive }
+        - { hostname: host_a_2, os: linux, state: "unreachable" }
+        - { hostname: host_a_3, os: linux, state: alive }
+      dc_b: 
+        - { hostname: host_b_1, os: linux, state: alive }
+        - { hostname: host_b_2, os: linux, state: alive }
+        - { hostname: host_b_3, os: linux, state: alive }
+  east:
+    dc:
+      dc_c:
+        - { hostname: host_c_1, os: linux, state: alive }
+        - { hostname: host_c_2, os: linux, state: alive }
+        - { hostname: host_c_3, os: linux, state: alive }
+  north:
+    truc: coucou
