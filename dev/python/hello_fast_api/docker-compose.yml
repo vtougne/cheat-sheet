@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  api:
+    container_name: hello_fast_api
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM python:3.9-slim
+        RUN apt-get update && apt-get install -y curl telnet procps
+        RUN pip install --no-cache-dir fastapi uvicorn[standard]   
+        RUN pip install --no-cache-dir httpx
+        RUN echo "alias ll='ls -lrt'" >> /root/.bashrc
+        RUN echo 'set -o vi' >> /root/.bashrc
+        EXPOSE 5001
+
+    command:
+      # python /app/hello_flask_api.py 
+      # python /app/hello_fast_api.py
+      # & ; curl localhost:5000/hello      # curl localhost:5000/hello
+      tail -f
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - .:/app
+    working_dir: /app
+    #   - /app/__pycache__
