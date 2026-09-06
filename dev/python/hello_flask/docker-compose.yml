@@ -3,9 +3,8 @@ version: "3.9"
 services:
   api:
     container_name: flask_hello_api
-    # ---------- BUILD EN LIGNE ----------
     build:
-      context: .          # le répertoire courant
+      context: .
       dockerfile_inline: |
         FROM python:3.9-slim
         RUN pip install --no-cache-dir flask
@@ -15,18 +14,17 @@ services:
         # CMD ["python", "/app/hello_flask_api.py","&"]
         # CMD ["python", "/app/hello_flask_api.py","&","curl", "localhost:5000/hello"]
         # CMD ["curl", "localhost:5000/hello"]
-    command:
-      # python /app/hello_flask_api.py & ; curl localhost:5000/hello
-      # curl localhost:5000/hello
-      tail -f
-
-    # ---------- RÉSEAUX ----------
-    ports:
-      - "5000:5000"       # expose le port 5000 du conteneur sur l’hôte
-
-    # ---------- MONITORING (facultatif) ----------
-    # Si vous voulez recharger à chaque modification (dev) :
-    # volumes:
-    #   - .:/app
-    #   - /app/__pycache__
     # command: ["python", "-m", "flask", "run", "--host=0.0.0.0", "--reload"]
+    command:
+      python /app/hello_flask_api.py 
+      # & ; curl localhost:5000/hello
+      # curl localhost:5000/hello
+      # tail -f
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - .:/app
+    working_dir: /app
+    #   - /app/__pycache__

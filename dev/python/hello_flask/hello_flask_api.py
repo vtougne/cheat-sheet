@@ -2,20 +2,15 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# ------------------------------------------------------------------
-# Route GET : /hello
-# ------------------------------------------------------------------
 @app.route('/hello', methods=['GET'])
 def hello():
-    """Retourne un message de bienvenue."""
-    return jsonify({
-        'message': 'Bonjour depuis l\'API Flask !',
-        'status': 'success'
-    }), 200
+    # """Retourne un message de bienvenue."""
+    # return jsonify({
+    #     'message': 'Bonjour depuis l\'API Flask !',
+    #     'status': 'success'
+    # }), 200
+    return "<h1>kiki</h1>"
 
-# ------------------------------------------------------------------
-# Route GET : /coucou
-# ------------------------------------------------------------------
 @app.route('/coucou', methods=['GET'])
 def coucou():
     """Retourne un message de bienvenue en français."""
@@ -24,9 +19,6 @@ def coucou():
         'status': 'success'
     }), 200
 
-# ------------------------------------------------------------------
-
-# ------------------------------------------------------------------
 @app.route('/echo', methods=['POST'])
 def echo():
     """
@@ -45,9 +37,6 @@ def echo():
         'status': 'success'
     }), 200
 
-# ------------------------------------------------------------------
-# Point d’entrée
-# ------------------------------------------------------------------
 if __name__ == '__main__':
     # Exécute le serveur en mode debug (développement uniquement)
     app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=True)
